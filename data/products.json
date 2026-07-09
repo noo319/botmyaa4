@@ -1,0 +1,22 @@
+{
+  "pubg_uc": [
+    { "id": "uc_60", "category": "pubg_uc", "title": "60 UC", "amount": 60, "priceRub": 75, "ask_game_id": 1, "active": true },
+    { "id": "uc_325", "category": "pubg_uc", "title": "325 UC", "amount": 325, "priceRub": 400, "ask_game_id": 1, "active": true },
+    { "id": "uc_385", "category": "pubg_uc", "title": "385 UC", "amount": 385, "priceRub": 480, "ask_game_id": 1, "active": true },
+    { "id": "uc_660", "category": "pubg_uc", "title": "660 UC", "amount": 660, "priceRub": 780, "ask_game_id": 1, "active": true },
+    { "id": "uc_720", "category": "pubg_uc", "title": "720 UC", "amount": 720, "priceRub": 860, "ask_game_id": 1, "active": true },
+    { "id": "uc_985", "category": "pubg_uc", "title": "985 UC", "amount": 985, "priceRub": 1180, "ask_game_id": 1, "active": true },
+    { "id": "uc_1045", "category": "pubg_uc", "title": "1045 UC", "amount": 1045, "priceRub": 1260, "ask_game_id": 1, "active": true },
+    { "id": "uc_1320", "category": "pubg_uc", "title": "1320 UC", "amount": 1320, "priceRub": 1560, "ask_game_id": 1, "active": true },
+    { "id": "uc_1800", "category": "pubg_uc", "title": "1800 UC", "amount": 1800, "priceRub": 1900, "ask_game_id": 1, "active": true },
+    { "id": "uc_3850", "category": "pubg_uc", "title": "3850 UC", "amount": 3850, "priceRub": 3750, "ask_game_id": 1, "active": true },
+    { "id": "uc_8100", "category": "pubg_uc", "title": "8100 UC", "amount": 8100, "priceRub": 7400, "ask_game_id": 1, "active": true }
+  ],
+  "prime_plus": [
+    { "id": "prime_1m", "category": "prime_plus", "title": "Prime Plus 1 месяц", "period": "1 месяц", "priceRub": 950, "ask_game_id": 1, "active": true },
+    { "id": "prime_3m", "category": "prime_plus", "title": "Prime Plus 3 месяца", "period": "3 месяца", "priceRub": 2500, "ask_game_id": 1, "active": true },
+    { "id": "prime_6m", "category": "prime_plus", "title": "Prime Plus 6 месяцев", "period": "6 месяцев", "priceRub": 4900, "ask_game_id": 1, "active": true },
+    { "id": "prime_12m", "category": "prime_plus", "title": "Prime Plus 12 месяцев", "period": "12 месяцев", "priceRub": 9450, "ask_game_id": 1, "active": true }
+  ],
+  "payments": ["СБП", "Банковские карты РФ", "USDT"]
+}
