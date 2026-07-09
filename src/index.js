@@ -32,17 +32,41 @@ function tgEmoji(id, fallback) {
 
 // Raw inline buttons: keeps web_app/url/callback_data, and passes the new style/icon_custom_emoji_id fields directly.
 // If a Telegram client/API ignores style, the button still works normally.
-function btn(text, data = {}) {
-  return { text, ...data };
+const EMOJI_FALLBACK = {
+  [EMOJI.app]: '💝',
+  [EMOJI.uc]: '💰',
+  [EMOJI.prime]: '🟠',
+  [EMOJI.support]: '📞',
+  [EMOJI.channel]: '⭐',
+  [EMOJI.lang]: '⚙️'
+};
+
+// Telegram currently shows button icon_custom_emoji_id only on clients/accounts that support it.
+// To keep the icon visible for every user, we send BOTH:
+// 1) icon_custom_emoji_id for modern Telegram clients
+// 2) a safe fallback emoji inside button text
+function buttonText(text, icon_custom_emoji_id) {
+  const icon = icon_custom_emoji_id ? EMOJI_FALLBACK[icon_custom_emoji_id] : '';
+  const clean = String(text || '').trim();
+  if (!icon) return clean;
+  if (clean.startsWith(icon)) return clean;
+  return `${icon} ${clean}`;
+}
+function btn(text, data = {}, icon_custom_emoji_id = undefined) {
+  return {
+    text: buttonText(text, icon_custom_emoji_id),
+    ...data,
+    ...(icon_custom_emoji_id ? { icon_custom_emoji_id } : {})
+  };
 }
 function cb(text, callback_data, style = 'primary', icon_custom_emoji_id = undefined) {
-  return btn(text, { callback_data, style, ...(icon_custom_emoji_id ? { icon_custom_emoji_id } : {}) });
+  return btn(text, { callback_data, style }, icon_custom_emoji_id);
 }
 function urlBtn(text, url, style = 'primary', icon_custom_emoji_id = undefined) {
-  return btn(text, { url, style, ...(icon_custom_emoji_id ? { icon_custom_emoji_id } : {}) });
+  return btn(text, { url, style }, icon_custom_emoji_id);
 }
 function webBtn(text, url, style = 'primary', icon_custom_emoji_id = undefined) {
-  return btn(text, { web_app: { url }, style, ...(icon_custom_emoji_id ? { icon_custom_emoji_id } : {}) });
+  return btn(text, { web_app: { url }, style }, icon_custom_emoji_id);
 }
 function inlineKeyboard(inline_keyboard) {
   return { reply_markup: { inline_keyboard } };
